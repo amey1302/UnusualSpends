@@ -6,13 +6,14 @@ import java.util.Objects;
 
 public class CreditCard {
     private final int creditCardId;
-
+    private Transaction transaction;
     public CreditCard(int creditCardId) {
         this.creditCardId = creditCardId;
     }
     private static boolean isValidCreditCardId(int creditCardId){
         return creditCardId >= 1;
     }
+
     public static CreditCard create(int creditCardId) throws InvalidCreditCardIdException {
         if(!isValidCreditCardId(creditCardId)) throw new InvalidCreditCardIdException("Invalid Credit CardID : "+creditCardId);
         return new CreditCard(creditCardId);
@@ -33,5 +34,13 @@ public class CreditCard {
     @Override
     public int hashCode() {
         return Objects.hash(creditCardId);
+    }
+
+    public Transaction getTransaction() {
+       return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
 }
