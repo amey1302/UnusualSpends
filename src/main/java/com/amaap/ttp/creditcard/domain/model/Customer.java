@@ -7,21 +7,22 @@ import com.amaap.ttp.creditcard.domain.model.exception.InvalidCustomerNameExcept
 
 import java.util.Objects;
 
-import static com.amaap.ttp.creditcard.domain.validator.CustomerValidation.isCustomerEmailIdValid;
-import static com.amaap.ttp.creditcard.domain.validator.CustomerValidation.isCustomerNameValid;
+import static com.amaap.ttp.creditcard.domain.validator.CustomerEmailValidation.isInValidCustomerEmailId;
+import static com.amaap.ttp.creditcard.domain.validator.CustomerNameValidation.isInValidCustomerName;
 
 public class Customer {
-    private static int id;
-    private static String name;
-    private static String email;
+    private final int id;
+    private final String name;
+    private final String email;
 
+    private CreditCard creditCard;
 
     public static Customer createCustomer(int id, String name, String email) throws CustomerValidationException {
         if (id <= 0)
             throw new InvalidCustomerIdException("Invalid CustomerId : " + id);
-        if (!isCustomerNameValid(name))
+        if (isInValidCustomerName(name))
             throw new InvalidCustomerNameException("Invalid CustomerName : " + name);
-        if (!isCustomerEmailIdValid(email))
+        if (isInValidCustomerEmailId(email))
             throw new InvalidCustomerEmailIdException("Invalid Customer Email : " + email);
         return new Customer(id, name, email);
 
@@ -32,18 +33,6 @@ public class Customer {
         this.id = id;
         this.name = name;
         this.email = email;
-    }
-
-    public static int getId() {
-        return id;
-    }
-
-    public static String getName() {
-        return name;
-    }
-
-    public static String getEmail() {
-        return email;
     }
 
     @Override
@@ -57,5 +46,13 @@ public class Customer {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, email);
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
     }
 }

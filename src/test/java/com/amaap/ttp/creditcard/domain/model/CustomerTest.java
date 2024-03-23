@@ -13,17 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
 
-    @Test
-    void shouldAbleToCreateCustomer() throws  CustomerValidationException {
-        int id = 1;
-        String name = "baburao apte";
-        String email = "baburao@gmail.com";
-        Customer.createCustomer(id,name,email);
-        assertEquals(id, Customer.getId());
-        assertEquals(name, Customer.getName());
-        assertEquals(email, Customer.getEmail());
-
-    }
 
     @Test
     void shouldAbleToThrowExceptionWhenCustomerIdIsInvalid() {
