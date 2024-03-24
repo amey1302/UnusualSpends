@@ -32,7 +32,7 @@ public class CreditCardManager {
         List<Transaction> transactions = creditCard.getTransactions();
         List<Transaction> currentMonthTransactions = UnusualSpend.currentMonthTransactions(transactions);
         List<Transaction> previousMonthTransactions = UnusualSpend.previousMonthTransactions(transactions);
-        Map<Category, Double> unusualSpendTransactions = UnusualSpend.calculateUnusualSpend(currentMonthTransactions,previousMonthTransactions);
+        Map<Category, Double> unusualSpendTransactions = UnusualSpend.calculateUnusualSpend(currentMonthTransactions,previousMonthTransactions,50.0);
 
         if(unusualSpendTransactions.size()!=0)
             return true;

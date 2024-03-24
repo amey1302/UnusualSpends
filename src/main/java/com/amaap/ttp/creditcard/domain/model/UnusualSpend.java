@@ -64,7 +64,8 @@ public class UnusualSpend {
         return previousMonthTransactions;
     }
 
-    public static Map<Category, Double> calculateUnusualSpend(List<Transaction> currentMonthTransactions, List<Transaction> previousMonthTransactions) {
+    public static Map<Category, Double> calculateUnusualSpend(List<Transaction> currentMonthTransactions, List<Transaction> previousMonthTransactions, double thresholdPercentage) {
+
         Map<Category, Double> unusualSpends = new HashMap<>();
         Map<Category, Double> currentMonthSpending = totalSpending(currentMonthTransactions);
         Map<Category, Double> previousMonthSpending = totalSpending(previousMonthTransactions);
@@ -74,7 +75,7 @@ public class UnusualSpend {
             double previousMonthAmount = previousMonthSpending.getOrDefault(category, 0.0);
 
             double percentageChange = ((currentMonthAmount - previousMonthAmount) / previousMonthAmount) * 100;
-            if (percentageChange >= 50.0)
+            if (percentageChange >= thresholdPercentage)
                 unusualSpends.put(category, currentMonthAmount - previousMonthAmount);
 
         }

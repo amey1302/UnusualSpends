@@ -86,7 +86,7 @@ class UnusualSpendTest {
         List<Transaction> prevMonthTransactions = UnusualSpend.previousMonthTransactions(creditCard.getTransactions());
 
 
-        Map<Category, Double> actual = UnusualSpend.calculateUnusualSpend(currentMonthTransactions, prevMonthTransactions);
+        Map<Category, Double> actual = UnusualSpend.calculateUnusualSpend(currentMonthTransactions, prevMonthTransactions,50.0);
 
         // System.out.println(actual);
         // Assert

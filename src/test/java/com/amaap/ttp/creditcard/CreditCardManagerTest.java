@@ -139,7 +139,43 @@ class CreditCardManagerTest {
 
         Map<Category, Double> unusualSpends = UnusualSpend.calculateUnusualSpend(
                 UnusualSpend.currentMonthTransactions(transactions),
-                UnusualSpend.previousMonthTransactions(transactions)
+                UnusualSpend.previousMonthTransactions(transactions),40.0
+        );
+        double totalUnusualAmount = UnusualSpend.totalUnusualAmountSpend(unusualSpends);
+
+        // Create DTO
+        UnusualSpendingEmailAlertDTO emailDTO = new UnusualSpendingEmailAlertDTO(customer, unusualSpends, totalUnusualAmount);
+        emailDTO.setCustomer(customer);
+        emailDTO.setUnusualSpends(unusualSpends);
+        emailDTO.setTotalUnusualAmount(totalUnusualAmount);
+
+        // Act
+        EmailAlert emailAlert = new EmailAlert();
+        String subject = "Unusual spending alert"; // Using from EmailAlertMessage
+        String body = EmailAlertMessage.generateUnusualSpendingEmail(emailDTO); // Dummy body
+        String result = emailAlert.sendEmail(subject, body, customerEmailId);
+
+        // Assert
+        assertEquals("Email Sent Successfully", result);
+    }
+    @Test
+    void shouldAbleToSendEmailForACustomerWithUnusualSpendsWIthThresholdPercentage() throws CustomerValidationException, InvalidTransactionException {
+        int customerId = 1;
+        String customerName = "Amey Kulkarni";
+        String customerEmailId = "ameykulkarni1302@gmail.com";
+        Customer customer = Customer.createCustomer(customerId, customerName, customerEmailId);
+        CreditCard creditCard = new CreditCard(1);
+        List<Transaction> transactions = new ArrayList<>();
+        transactions.add(Transaction.create(1, LocalDate.of(2024, 02, 24), 148.0, Category.Groceries));
+        transactions.add(Transaction.create(2, LocalDate.of(2024, 02, 15), 100.0, Category.Travel));
+        transactions.add(Transaction.create(3, LocalDate.of(2024, 03, 25), 928.0, Category.Groceries));
+        transactions.add(Transaction.create(4, LocalDate.of(2024, 03, 15), 500.0, Category.Travel));
+        creditCard.setTransactions(transactions);
+        customer.setCreditCard(creditCard);
+
+        Map<Category, Double> unusualSpends = UnusualSpend.calculateUnusualSpend(
+                UnusualSpend.currentMonthTransactions(transactions),
+                UnusualSpend.previousMonthTransactions(transactions),40.0
         );
         double totalUnusualAmount = UnusualSpend.totalUnusualAmountSpend(unusualSpends);
 
