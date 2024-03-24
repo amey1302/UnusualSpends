@@ -1,9 +1,11 @@
 package com.amaap.ttp.creditcard.domain.model;
 
 import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionAmountException;
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionDateException;
 import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionException;
 import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -25,10 +27,22 @@ public class Transaction {
     public static Transaction create(int transactionId, LocalDate date, double amount, Category category) throws InvalidTransactionException {
         if (transactionId <= 0) throw new InvalidTransactionIdException("Invalid Transaction Id " + transactionId);
         if (isInvalidTransactionAmount(amount)) throw new InvalidTransactionAmountException("Transaction Amount Should be Greater Than 100 " + amount);
-
+        if(isInvalidTransactionDate(date)) throw new InvalidTransactionDateException("Transaction Date Should be In Format(yyyy,MM,dd)");
 
         return new Transaction(transactionId, date, amount, category);
     }
+
+    private static boolean isInvalidTransactionDate(LocalDate date) throws InvalidTransactionDateException {
+        try {
+            // Attempt to create a date using the provided LocalDate
+            LocalDate.of(date.getYear(), date.getMonth(), date.getDayOfMonth());
+            return false; // Date is valid
+        } catch (DateTimeException e) {
+            // Date is invalid, throw InvalidTransactionDateException
+            throw new InvalidTransactionDateException("Invalid transaction date: " + date +" "+e);
+        }
+    }
+
     private static boolean isInvalidTransactionAmount(double amount) {
         return !isValidTransactionAmount(amount);
     }
