@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class CreditCard {
-    private final int creditCardId;
-    private List<Transaction> transactions = new ArrayList<>();
+    private static int creditCardId;
+    private static List<Transaction> transactions = new ArrayList<>();
     public CreditCard(int creditCardId) {
         this.creditCardId = creditCardId;
     }
@@ -38,11 +38,15 @@ public class CreditCard {
         return Objects.hash(creditCardId);
     }
 
-    public List<Transaction> getTransactions() {
+    public static List<Transaction> getTransactions() {
         return transactions;
     }
 
     public void addTransaction(Transaction transaction){
         transactions.add(transaction);
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }

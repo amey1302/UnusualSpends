@@ -1,14 +1,13 @@
 package com.amaap.ttp.creditcard;
 
-import com.amaap.ttp.creditcard.domain.model.Category;
-import com.amaap.ttp.creditcard.domain.model.CreditCard;
-import com.amaap.ttp.creditcard.domain.model.Customer;
-import com.amaap.ttp.creditcard.domain.model.Transaction;
+import com.amaap.ttp.creditcard.domain.model.*;
 import com.amaap.ttp.creditcard.domain.exception.customerexception.CustomerValidationException;
 import com.amaap.ttp.creditcard.domain.exception.creditcardexception.InvalidCreditCardIdException;
 import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionException;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 public class CreditCardManager {
     public Customer createCustomer(int customerId, String customerName, String customerEmail) throws CustomerValidationException {
@@ -28,4 +27,17 @@ public class CreditCardManager {
     }
 
 
+    public boolean analyzeUnusualSpendsFor(CreditCard creditCard) {
+
+        List<Transaction> transactions = creditCard.getTransactions();
+        List<Transaction> currentMonthTransactions = UnusualSpend.currentMonthTransactions(transactions);
+        List<Transaction> previousMonthTransactions = UnusualSpend.previousMonthTransactions(transactions);
+        Map<Category, Double> unusualSpendTransactions = UnusualSpend.calculateUnusualSpend(currentMonthTransactions,previousMonthTransactions);
+
+        if(unusualSpendTransactions.size()!=0)
+            return true;
+        return false;
+
+
+    }
 }

@@ -52,6 +52,21 @@ public class Transaction {
     }
 
 
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -64,5 +79,14 @@ public class Transaction {
     @Override
     public int hashCode() {
         return Objects.hash(transactionId, date, amount, category);
+    }
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionId=" + transactionId +
+                ", date=" + date +
+                ", amount=" + amount +
+                ", category=" + category +
+                '}';
     }
 }
