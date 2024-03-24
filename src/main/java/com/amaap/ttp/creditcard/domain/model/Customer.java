@@ -35,6 +35,14 @@ public class Customer {
         this.email = email;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,6 +50,7 @@ public class Customer {
         Customer customer = (Customer) o;
         return id == customer.id && Objects.equals(name, customer.name) && Objects.equals(email, customer.email);
     }
+
 
     @Override
     public int hashCode() {
