@@ -17,7 +17,7 @@ public class Customer {
 
     private CreditCard creditCard;
 
-    public static Customer createCustomer(int id, String name, String email) throws CustomerValidationException {
+    public static Customer create(int id, String name, String email) throws CustomerValidationException {
         if (id <= 0)
             throw new InvalidCustomerIdException("Invalid CustomerId : " + id);
         if (isInValidCustomerName(name))

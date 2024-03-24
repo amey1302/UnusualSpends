@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UnusualSpend.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UnusualSpends</a> &gt; <a href="index.source.html" class="el_package">com.amaap.ttp.creditcard.domain.model</a> &gt; <span class="el_source">UnusualSpend.java</span></div><h1>UnusualSpend.java</h1><pre class="source lang-java linenums">package com.amaap.ttp.creditcard.domain.model;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+<span class="fc" id="L10">public class UnusualSpend {</span>
+
+    public static double getTotalAmountSpent() {
+
+<span class="fc" id="L14">        List&lt;Transaction&gt; transactions = CreditCard.getTransactions();</span>
+<span class="fc" id="L15">        double totalAmountSpent = 0.0;</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (Transaction transaction : transactions) {</span>
+<span class="fc" id="L17">            totalAmountSpent += transaction.getAmount();</span>
+<span class="fc" id="L18">        }</span>
+<span class="fc" id="L19">        return totalAmountSpent;</span>
+    }
+
+
+    public static List&lt;Transaction&gt; currentMonthTransactions(List&lt;Transaction&gt; transactions) {
+
+<span class="fc" id="L25">        List&lt;Transaction&gt; currentMonthTransactions = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">        LocalDate date = LocalDate.now();</span>
+<span class="fc" id="L27">        Month currentMonth = date.getMonth();</span>
+
+<span class="fc" id="L29">        int currentYear = date.getYear();</span>
+
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        for (Transaction transaction : transactions) {</span>
+<span class="fc" id="L32">            LocalDate transactionDate = transaction.getDate();</span>
+<span class="fc" id="L33">            Month transactionMonth = transactionDate.getMonth();</span>
+<span class="fc" id="L34">            int transactionYear = transactionDate.getYear();</span>
+<span class="pc bpc" id="L35" title="1 of 4 branches missed.">            if (transactionMonth == currentMonth &amp;&amp; transactionYear == currentYear) {</span>
+<span class="fc" id="L36">                currentMonthTransactions.add(transaction);</span>
+            }
+<span class="fc" id="L38">        }</span>
+<span class="fc" id="L39">        return currentMonthTransactions;</span>
+    }
+
+    public static List&lt;Transaction&gt; previousMonthTransactions(List&lt;Transaction&gt; transactions) {
+<span class="fc" id="L43">        List&lt;Transaction&gt; previousMonthTransactions = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L44">        LocalDate currentDate = LocalDate.now();</span>
+<span class="fc" id="L45">        Month currentMonth = currentDate.getMonth();</span>
+<span class="fc" id="L46">        int currentYear = currentDate.getYear();</span>
+
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (Transaction transaction : transactions) {</span>
+<span class="fc" id="L49">            LocalDate transactionDate = transaction.getDate();</span>
+<span class="fc" id="L50">            Month transactionMonth = transactionDate.getMonth();</span>
+<span class="fc" id="L51">            int transactionYear = transactionDate.getYear();</span>
+
+<span class="fc" id="L53">            Month previousMonth = currentMonth.minus(1);</span>
+<span class="fc" id="L54">            int previousYear = currentYear;</span>
+
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">            if (previousMonth == Month.DECEMBER) {</span>
+<span class="nc" id="L57">                previousYear--;</span>
+            }
+
+<span class="pc bpc" id="L60" title="1 of 4 branches missed.">            if (transactionMonth == previousMonth &amp;&amp; transactionYear == previousYear) {</span>
+<span class="fc" id="L61">                previousMonthTransactions.add(transaction);</span>
+            }
+<span class="fc" id="L63">        }</span>
+<span class="fc" id="L64">        return previousMonthTransactions;</span>
+    }
+
+    public static Map&lt;Category, Double&gt; calculateUnusualSpend(List&lt;Transaction&gt; currentMonthTransactions, List&lt;Transaction&gt; previousMonthTransactions, double thresholdPercentage) {
+
+<span class="fc" id="L69">        Map&lt;Category, Double&gt; unusualSpends = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L70">        Map&lt;Category, Double&gt; currentMonthSpending = totalSpending(currentMonthTransactions);</span>
+<span class="fc" id="L71">        Map&lt;Category, Double&gt; previousMonthSpending = totalSpending(previousMonthTransactions);</span>
+
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        for (Category category : Category.values()) {</span>
+<span class="fc" id="L74">            double currentMonthAmount = currentMonthSpending.getOrDefault(category, 0.0);</span>
+<span class="fc" id="L75">            double previousMonthAmount = previousMonthSpending.getOrDefault(category, 0.0);</span>
+
+<span class="fc" id="L77">            double percentageChange = ((currentMonthAmount - previousMonthAmount) / previousMonthAmount) * 100;</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (percentageChange &gt;= thresholdPercentage)</span>
+<span class="fc" id="L79">                unusualSpends.put(category, currentMonthAmount - previousMonthAmount);</span>
+
+        }
+<span class="fc" id="L82">        return unusualSpends;</span>
+    }
+
+    public static double totalUnusualAmountSpend(Map&lt;Category, Double&gt; unusualSpends) {
+<span class="fc" id="L86">        double totalUnusualAmount = 0.0;</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        for (double amount : unusualSpends.values()) {</span>
+<span class="fc" id="L88">            totalUnusualAmount += amount;</span>
+<span class="fc" id="L89">        }</span>
+<span class="fc" id="L90">        return totalUnusualAmount;</span>
+    }
+
+    public static Map&lt;Category, Double&gt; totalSpending(List&lt;Transaction&gt; transactions) {
+<span class="fc" id="L94">        Map&lt;Category, Double&gt; totalAmount = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        for (Transaction transaction : transactions) {</span>
+<span class="fc" id="L96">            Category category = transaction.getCategory();</span>
+<span class="fc" id="L97">            Double amount = transaction.getAmount();</span>
+<span class="fc" id="L98">            totalAmount.put(category, totalAmount.getOrDefault(category, 0.0) + amount);</span>
+
+<span class="fc" id="L100">        }</span>
+<span class="fc" id="L101">        return totalAmount;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

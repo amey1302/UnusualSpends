@@ -12,7 +12,7 @@ import java.util.Map;
 public class CreditCardManager {
     public Customer createCustomer(int customerId, String customerName, String customerEmail) throws CustomerValidationException {
         // Create a customer using the provided data
-        Customer customer = Customer.createCustomer(customerId, customerName, customerEmail);
+        Customer customer = Customer.create(customerId, customerName, customerEmail);
         return customer;
     }
 

@@ -18,6 +18,7 @@ import java.util.Map;
 import static com.amaap.ttp.creditcard.domain.model.CreditCard.getTransactions;
 import static org.junit.jupiter.api.Assertions.*;
 
+
 class CreditCardManagerTest {
     private CreditCardManager creditCardManager;
     private CreditCard creditCard;
@@ -36,7 +37,7 @@ class CreditCardManagerTest {
         int customerId = 1;
         String customerName = "Rohit Sharma";
         String customerEmailId = "rohit@mi.com";
-        Customer expected = Customer.createCustomer(customerId, customerName, customerEmailId);
+        Customer expected = Customer.create(customerId, customerName, customerEmailId);
 
         //act
         CreditCardManager creditCardManager = new CreditCardManager();
@@ -51,7 +52,7 @@ class CreditCardManagerTest {
         int customerId = 1;
         String customerName = "Rohit Sharma";
         String customerEmailId = "rohit@sharma.com";
-        Customer customer = Customer.createCustomer(customerId, customerName, customerEmailId);
+        Customer customer = Customer.create(customerId, customerName, customerEmailId);
         int creditCardId = 1;
         CreditCard expected = CreditCard.create(creditCardId);
         assertNull(customer.getCreditCard());
@@ -113,7 +114,7 @@ class CreditCardManagerTest {
         int customerId = 1;
         String customerName = "Rohit Sharma";
         String customerEmailId = "rohit@sharma.com";
-        Customer customer = Customer.createCustomer(customerId, customerName, customerEmailId);
+        Customer customer = Customer.create(customerId, customerName, customerEmailId);
         CreditCard creditCard = CreditCard.create(1);
 
         //multiple transactions for same customer
@@ -135,7 +136,7 @@ class CreditCardManagerTest {
         int customerId = 1;
         String customerName = "Amey Kulkarni";
         String customerEmailId = "ameykulkarni1302@gmail.com";
-        Customer customer = Customer.createCustomer(customerId, customerName, customerEmailId);
+        Customer customer = Customer.create(customerId, customerName, customerEmailId);
         CreditCard creditCard = CreditCard.create(1);
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(Transaction.create(1, LocalDate.of(2024, 02, 24), 148.0, Category.Groceries));
@@ -172,7 +173,7 @@ class CreditCardManagerTest {
         int customerId = 1;
         String customerName = "Amey Kulkarni";
         String customerEmailId = "ameykulkarni1302@gmail.com";
-        Customer customer = Customer.createCustomer(customerId, customerName, customerEmailId);
+        Customer customer = Customer.create(customerId, customerName, customerEmailId);
         CreditCard creditCard = CreditCard.create(1);
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(Transaction.create(1, LocalDate.of(2024, 02, 24), 148.0, Category.Groceries));

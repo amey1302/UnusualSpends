@@ -6,8 +6,7 @@ import com.amaap.ttp.creditcard.domain.model.Category;
 import com.amaap.ttp.creditcard.domain.model.Customer;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,12 +16,13 @@ class EmailAlertMessageTest {
     @Test
     void testGenerateUnusualSpendingEmail() throws CustomerValidationException {
         // Create a sample customer
-        Customer customer = Customer.createCustomer(1, "Baburao Apte", "baburao@example.com");
+        Customer customer = Customer.create(1, "Baburao Apte", "baburao@example.com");
 
         // Create a sample map of unusual spends
-        Map<Category, Double> unusualSpends = new HashMap<>();
-        unusualSpends.put(Category.Travel, 928.0);
+        LinkedHashMap<Category, Double> unusualSpends = new LinkedHashMap<>();
         unusualSpends.put(Category.Groceries, 148.0);
+        unusualSpends.put(Category.Travel, 928.0);
+
 
 
         // Create the UnusualSpendingEmailNotificationDTO object

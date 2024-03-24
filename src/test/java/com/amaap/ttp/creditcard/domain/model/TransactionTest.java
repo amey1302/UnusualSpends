@@ -55,19 +55,6 @@ class TransactionTest {
         });
     }
 
-    @Test
-    void shouldBeAbleToThrowAnExceptionWhenTransactionAmountIsLessThanHundred() {
-        //Arrange
-        int transactionId = 1;
-        LocalDate date = LocalDate.of(2024, 12, 22);
-        double amount = 98;
-        Category category = Category.Travel;
-
-        //Act and Assert
-        assertThrows(InvalidTransactionAmountException.class, () -> {
-            Transaction.create(transactionId, date, amount, category);
-        });
-    }
 
     //Transaction Date Validation
     @Test

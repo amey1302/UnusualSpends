@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amaap.ttp.creditcard.CreditCardManagerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-03-24T14:19:52" hostname="LAPTOP-205J7BQ6" time="8.101">
+<testsuite name="com.amaap.ttp.creditcard.CreditCardManagerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-03-24T14:41:19" hostname="LAPTOP-205J7BQ6" time="8.422">
   <properties/>
-  <testcase name="shouldAbleToSendEmailForACustomerWithUnusualSpends()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="4.108"/>
-  <testcase name="shouldAbleToSendEmailForACustomerWithUnusualSpendsWIthThresholdPercentage()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="3.971"/>
-  <testcase name="shouldAbleToAddMultipleTransactionsForACreditCard()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.002"/>
-  <testcase name="shouldAbleToCreateACreditCardForACustomer()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.005"/>
-  <testcase name="shouldAbleToCreateCustomer()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.002"/>
-  <testcase name="shouldAbleToCalculateUnusualSpendsForACustomer()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.003"/>
+  <testcase name="shouldAbleToSendEmailForACustomerWithUnusualSpends()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="4.787"/>
+  <testcase name="shouldAbleToSendEmailForACustomerWithUnusualSpendsWIthThresholdPercentage()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="3.622"/>
+  <testcase name="shouldAbleToAddMultipleTransactionsForACreditCard()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.001"/>
+  <testcase name="shouldAbleToCreateACreditCardForACustomer()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.002"/>
+  <testcase name="shouldAbleToCreateCustomer()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.001"/>
+  <testcase name="shouldAbleToCalculateUnusualSpendsForACustomer()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.002"/>
   <testcase name="shouldAbleToCreateTransactionForTheCreditCard()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
