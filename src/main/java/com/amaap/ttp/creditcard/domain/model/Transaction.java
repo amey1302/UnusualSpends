@@ -14,7 +14,6 @@ public class Transaction {
     private final int transactionId;
     private final LocalDate date;
     private final double amount;
-
     private final Category category;
 
     private Transaction(int transactionId, LocalDate date, double amount, Category category) {

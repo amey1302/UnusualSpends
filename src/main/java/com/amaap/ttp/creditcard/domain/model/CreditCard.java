@@ -9,7 +9,7 @@ import java.util.Objects;
 public class CreditCard {
     private static int creditCardId;
     private static List<Transaction> transactions = new ArrayList<>();
-    public CreditCard(int creditCardId) {
+    private CreditCard(int creditCardId) {
         this.creditCardId = creditCardId;
     }
     private static boolean isValidCreditCardId(int creditCardId){

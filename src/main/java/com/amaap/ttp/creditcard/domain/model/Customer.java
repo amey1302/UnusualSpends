@@ -25,8 +25,6 @@ public class Customer {
         if (isInValidCustomerEmailId(email))
             throw new InvalidCustomerEmailIdException("Invalid Customer Email : " + email);
         return new Customer(id, name, email);
-
-
     }
 
     private Customer(int id, String name, String email) {
@@ -50,7 +48,6 @@ public class Customer {
         Customer customer = (Customer) o;
         return id == customer.id && Objects.equals(name, customer.name) && Objects.equals(email, customer.email);
     }
-
 
     @Override
     public int hashCode() {
