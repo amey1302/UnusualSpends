@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class EmailAlertTest {
+class EmailAlertMessageTest {
 
 
     @Test
@@ -40,7 +40,7 @@ class EmailAlertTest {
                 "Thanks,\n" +
                 "The Credit Card Company";
 
-        String actualEmailContent = EmailAlert.generateUnusualSpendingEmail(emailDTO);
+        String actualEmailContent = EmailAlertMessage.generateUnusualSpendingEmail(emailDTO);
 
         // Assert
         assertEquals(expectedEmailContent, actualEmailContent);

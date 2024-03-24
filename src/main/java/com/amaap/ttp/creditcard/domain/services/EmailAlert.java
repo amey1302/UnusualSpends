@@ -1,33 +1,55 @@
 package com.amaap.ttp.creditcard.domain.services;
 
-import com.amaap.ttp.creditcard.domain.DTO.UnusualSpendingEmailAlertDTO;
-import com.amaap.ttp.creditcard.domain.model.Category;
-import com.amaap.ttp.creditcard.domain.model.Customer;
-
-import java.util.Map;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 public class EmailAlert {
-    public static String generateUnusualSpendingEmail(UnusualSpendingEmailAlertDTO emailDTO) {
-        Customer customer = emailDTO.getCustomer();
-        Map<Category, Double> unusualSpends = emailDTO.getUnusualSpends();
-        double totalUnusualAmount = emailDTO.getTotalUnusualAmount();
 
-        StringBuilder emailContent = new StringBuilder();
-        emailContent.append("Unusual spending of RS.").append(totalUnusualAmount).append(" detected!\n\n");
-        emailContent.append("Hello ").append(customer.getName()).append("!\n\n");
-        emailContent.append("We have detected unusually high spending on your card in these categories:\n\n");
+    public String sendEmail(String subject, String body, String bEmail) {
 
-        for (Map.Entry<Category, Double> entry : unusualSpends.entrySet()) {
-            emailContent.append("* You spent RS.").append(entry.getValue()).append(" on ").append(entry.getKey()).append("\n");
+        if (bEmail.isEmpty()) return "One recipient should be provide";
+        if (subject.isEmpty() || body.isEmpty()) return "Please check subject or Body";
+        String fromEmail = "ameykulkarni456@gmail.com";
+        String toEmail = bEmail;
+        String password = "rlia qzqp feid oajo";
+
+
+        String host = "127.0.0.1";
+
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+                return new javax.mail.PasswordAuthentication(fromEmail, password);
+            }
+        });
+
+        try {
+            Message message = new MimeMessage(session);
+
+            message.setFrom(new InternetAddress(fromEmail));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+
+            message.setSubject(subject);
+            message.setText(body);
+
+            Transport.send(message);
+
+        } catch (MessagingException e) {
+            System.err.println("Error sending email: " + e.getMessage());
         }
 
-        emailContent.append("\nThanks,\n");
-        emailContent.append("The Credit Card Company");
 
-        //System.out.println(emailContent.toString());
-
-        return emailContent.toString();
-
+        return "Email Sent Successfully";
     }
-
 }
+

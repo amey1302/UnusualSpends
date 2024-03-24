@@ -48,7 +48,7 @@ public class Transaction {
     }
 
     private static boolean isValidTransactionAmount(double amount) {
-        return amount > 0 && amount >= 100;
+        return amount > 0;
     }
 
 
