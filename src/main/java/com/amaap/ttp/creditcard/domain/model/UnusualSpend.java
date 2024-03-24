@@ -39,7 +39,28 @@ public class UnusualSpend {
     }
 
     public static List<Transaction> previousMonthTransactions(List<Transaction> transactions) {
-        return null;
+        List<Transaction> previousMonthTransactions = new ArrayList<>();
+        LocalDate currentDate = LocalDate.now();
+        Month currentMonth = currentDate.getMonth();
+        int currentYear = currentDate.getYear();
+
+        for (Transaction transaction : transactions) {
+            LocalDate transactionDate = transaction.getDate();
+            Month transactionMonth = transactionDate.getMonth();
+            int transactionYear = transactionDate.getYear();
+
+            Month previousMonth = currentMonth.minus(1);
+            int previousYear = currentYear;
+
+            if (previousMonth == Month.DECEMBER) {
+                previousYear--;
+            }
+
+            if (transactionMonth == previousMonth && transactionYear == previousYear) {
+                previousMonthTransactions.add(transaction);
+            }
+        }
+        return previousMonthTransactions;
     }
 
     public static Map<Category, Double> calculateUnusualSpend(List<Transaction> currentMonthTransactions, List<Transaction> previousMonthTransactions) {

@@ -44,5 +44,27 @@ class UnusualSpendTest {
         assertEquals(2,currentMonthTransactions.size());
 
     }
+    @Test
+    void shouldAblToReturnCurrentPreviousMonthTransactions() throws InvalidTransactionException {
+        //Arrange
+        CreditCard creditCard = new CreditCard(1);
+        List<Transaction> transactions = new ArrayList<>();
+        transactions.add(Transaction.create(1, LocalDate.of(2024, 03, 13), 230.0, Category.Groceries));
+        transactions.add(Transaction.create(2, LocalDate.of(2024, 01, 14), 450.0, Category.Groceries));
+        transactions.add(Transaction.create(3, LocalDate.of(2024, 02, 13), 330.0, Category.Groceries));
+        transactions.add(Transaction.create(4, LocalDate.of(2024, 02, 13), 330.0, Category.Groceries));
+        creditCard.setTransactions(transactions);
+
+        //Act
+        List<Transaction> previousMonthTransactions = UnusualSpend.previousMonthTransactions(transactions);
+
+        //System.out.println(previousMonthTransactions);
+
+        //Assert
+        assertEquals(2,previousMonthTransactions.size());
+
+    }
+
+
 
 }
