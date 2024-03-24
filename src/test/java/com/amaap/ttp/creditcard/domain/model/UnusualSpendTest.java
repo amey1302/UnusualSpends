@@ -96,7 +96,7 @@ class UnusualSpendTest {
         assertEquals(expected, actual);
     }
 
-    
+
 
 
 }
