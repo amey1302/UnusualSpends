@@ -6,6 +6,8 @@ import com.amaap.ttp.creditcard.domain.model.Customer;
 import com.amaap.ttp.creditcard.domain.model.Transaction;
 import com.amaap.ttp.creditcard.domain.model.exception.CustomerValidationException;
 import com.amaap.ttp.creditcard.domain.model.exception.InvalidCreditCardIdException;
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionException;
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -22,8 +24,11 @@ public class CreditCardManager {
         customer.setCreditCard(creditCard);
     }
 
-    public void createTransactionForACreditCard(int transactionId, Date date, double amount, Category category, CreditCard creditCard) {
+    public void createTransactionForACreditCard(int transactionId, LocalDate date, double amount, Category category, CreditCard creditCard) throws InvalidTransactionException {
         Transaction transaction = Transaction.create(transactionId,date,amount,category);
         creditCard.setTransaction(transaction);
     }
+    //Todo : Need to Add/handle for Multiple Transaction and Unusual Spend Analyzer and Email Alert with the
+    // validation test case for the transaction constructor params
+
 }

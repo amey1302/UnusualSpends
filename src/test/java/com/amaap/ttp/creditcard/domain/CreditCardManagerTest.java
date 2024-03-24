@@ -6,6 +6,8 @@ import com.amaap.ttp.creditcard.domain.model.Customer;
 import com.amaap.ttp.creditcard.domain.model.Transaction;
 import com.amaap.ttp.creditcard.domain.model.exception.CustomerValidationException;
 import com.amaap.ttp.creditcard.domain.model.exception.InvalidCreditCardIdException;
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionException;
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -52,12 +54,12 @@ class CreditCardManagerTest {
     }
 
     @Test
-    void shouldAbleToCreateTransactionForTheCreditCard() throws InvalidCreditCardIdException {
+    void shouldAbleToCreateTransactionForTheCreditCard() throws InvalidCreditCardIdException, InvalidTransactionException {
         //arrange
         int creditCardId = 1;
         CreditCard creditCard = CreditCard.create(creditCardId);
         int transactionId = 1;
-        Date date =new Date(2024,03,15);
+        LocalDate date = LocalDate.of(2024,03,14);
         double amount = 234.29;
         Category category = Category.Groceries;
         Transaction expected = Transaction.create(transactionId, date, amount, category);

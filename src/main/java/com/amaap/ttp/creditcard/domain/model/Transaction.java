@@ -1,27 +1,33 @@
 package com.amaap.ttp.creditcard.domain.model;
 
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionException;
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
+
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class Transaction {
 
     private final int transactionId;
-    private final Date date;
+    private final LocalDate date;
     private final double amount;
 
     private final Category category;
 
-    private Transaction(int transactionId, Date date, double amount, Category category) {
+    private Transaction(int transactionId, LocalDate date, double amount, Category category) {
         this.transactionId = transactionId;
         this.date = date;
         this.amount = amount;
         this.category = category;
     }
-    public static Transaction create(int transactionId, Date date, double amount, Category category) {
-        //Todo: validation for each field
-        return new Transaction(transactionId,date,amount,category);
+
+    public static Transaction create(int transactionId, LocalDate date, double amount, Category category) throws InvalidTransactionException {
+        if (transactionId <= 0) throw new InvalidTransactionIdException("Invalid Transaction Id " + transactionId);
+
+
+        return new Transaction(transactionId, date, amount, category);
     }
+
 
     @Override
     public boolean equals(Object o) {
