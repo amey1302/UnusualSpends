@@ -1,10 +1,10 @@
 package com.amaap.ttp.creditcard.domain.model;
 
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionAmountException;
 import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -24,5 +24,48 @@ class TransactionTest {
 
     }
 
+    @Test
+    void shouldBeAbleToThrowAnExceptionWhenTransactionAmountIsZero() {
+        //Arrange
+        int transactionId = 1;
+        LocalDate date = LocalDate.of(2024, 12, 22);
+        double amount = 0;
+        Category category = Category.Groceries;
+
+        //Act and Assert
+        assertThrows(InvalidTransactionAmountException.class, () -> {
+            Transaction.create(transactionId, date, amount, category);
+        });
+
+    }
+
+    @Test
+    void shouldBeAbleToThrowAnExceptionWhenTransactionAmountIsNegative() {
+        //Arrange
+        int transactionId = 1;
+        LocalDate date = LocalDate.of(2024, 12, 22);
+        double amount = -1;
+        Category category = Category.Travel;
+
+
+        //Act and Assert
+        assertThrows(InvalidTransactionAmountException.class, () -> {
+            Transaction.create(transactionId, date, amount, category);
+        });
+    }
+
+    @Test
+    void shouldBeAbleToThrowAnExceptionWhenTransactionAmountIsLessThanHundred() {
+        //Arrange
+        int transactionId = 1;
+        LocalDate date = LocalDate.of(2024, 12, 22);
+        double amount = 98;
+        Category category = Category.Travel;
+
+        //Act and Assert
+        assertThrows(InvalidTransactionAmountException.class, () -> {
+            Transaction.create(transactionId, date, amount, category);
+        });
+    }
 
 }

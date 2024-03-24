@@ -1,5 +1,6 @@
 package com.amaap.ttp.creditcard.domain.model;
 
+import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionAmountException;
 import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionException;
 import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
 
@@ -23,10 +24,19 @@ public class Transaction {
 
     public static Transaction create(int transactionId, LocalDate date, double amount, Category category) throws InvalidTransactionException {
         if (transactionId <= 0) throw new InvalidTransactionIdException("Invalid Transaction Id " + transactionId);
+        if (isInvalidTransactionAmount(amount)) throw new InvalidTransactionAmountException("Transaction Amount Should be Greater Than 100 " + amount);
 
 
         return new Transaction(transactionId, date, amount, category);
     }
+    private static boolean isInvalidTransactionAmount(double amount) {
+        return !isValidTransactionAmount(amount);
+    }
+
+    private static boolean isValidTransactionAmount(double amount) {
+        return amount > 0 && amount >= 100;
+    }
+
 
 
     @Override
