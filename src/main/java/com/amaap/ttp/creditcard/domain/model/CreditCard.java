@@ -2,11 +2,13 @@ package com.amaap.ttp.creditcard.domain.model;
 
 import com.amaap.ttp.creditcard.domain.exception.creditcardexception.InvalidCreditCardIdException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CreditCard {
     private final int creditCardId;
-    private Transaction transaction;
+    private List<Transaction> transactions = new ArrayList<>();
     public CreditCard(int creditCardId) {
         this.creditCardId = creditCardId;
     }
@@ -36,11 +38,11 @@ public class CreditCard {
         return Objects.hash(creditCardId);
     }
 
-    public Transaction getTransaction() {
-       return transaction;
+    public List<Transaction> getTransactions() {
+        return transactions;
     }
 
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
+    public void addTransaction(Transaction transaction){
+        transactions.add(transaction);
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.amaap.ttp.creditcard.CreditCardManagerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-03-24T06:36:07" hostname="LAPTOP-205J7BQ6" time="0.053">
+  <properties/>
+  <testcase name="shouldAbleToAddMultipleTransactionsForACreditCard()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.039"/>
+  <testcase name="shouldAbleToCreateACreditCardForACustomer()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.006"/>
+  <testcase name="shouldAbleToCreateCustomer()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.001"/>
+  <testcase name="shouldAbleToCreateTransactionForTheCreditCard()" classname="com.amaap.ttp.creditcard.CreditCardManagerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

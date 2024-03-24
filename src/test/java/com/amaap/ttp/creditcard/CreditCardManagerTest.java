@@ -10,6 +10,7 @@ import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTra
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -60,13 +61,33 @@ class CreditCardManagerTest {
         LocalDate date = LocalDate.of(2024,03,14);
         double amount = 234.29;
         Category category = Category.Groceries;
-        Transaction expected = Transaction.create(transactionId, date, amount, category);
+        List<Transaction> expected = List.of(Transaction.create(transactionId, date, amount, category));
 
         //act
         creditCardManger.createTransactionForACreditCard(transactionId, date, amount, category, creditCard);
 
         //assert
-        assertEquals(expected, creditCard.getTransaction());
+        assertEquals(expected, creditCard.getTransactions());
+
+    }
+    @Test
+    void shouldAbleToAddMultipleTransactionsForACreditCard() throws InvalidCreditCardIdException, InvalidTransactionException {
+        //arrange
+        int creditCardId = 1;
+        CreditCard creditCard = CreditCard.create(creditCardId);
+        int transactionId = 1;
+        LocalDate date = LocalDate.of(2024,03,14);
+        double amount = 234.29;
+        Category category = Category.Groceries;
+        List<Transaction> expected = List.of(Transaction.create(transactionId, date, amount, category),
+                Transaction.create(2, date, 540.29, Category.Travel));
+
+        //act
+        creditCardManger.createTransactionForACreditCard(transactionId, date, amount, category, creditCard);
+        creditCardManger.createTransactionForACreditCard(2, date, 540.29, Category.Travel, creditCard);
+
+        //assert
+        assertEquals(expected, creditCard.getTransactions());
 
     }
 
