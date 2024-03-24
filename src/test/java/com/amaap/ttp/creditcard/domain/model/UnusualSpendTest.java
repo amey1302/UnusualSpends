@@ -1,5 +1,6 @@
 package com.amaap.ttp.creditcard.domain.model;
 
+import com.amaap.ttp.creditcard.domain.exception.creditcardexception.InvalidCreditCardIdException;
 import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionException;
 import org.junit.jupiter.api.Test;
 
@@ -13,9 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UnusualSpendTest {
     @Test
-    void shouldAbleToGetTotalTransactionsAmount() throws InvalidTransactionException {
+    void shouldAbleToGetTotalTransactionsAmount() throws InvalidTransactionException, InvalidCreditCardIdException {
         //arrange
-        CreditCard creditCard = new CreditCard(1);
+        CreditCard creditCard = CreditCard.create(1);
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(Transaction.create(1, LocalDate.of(2024, 02, 13), 230.0, Category.Groceries));
         transactions.add(Transaction.create(1, LocalDate.of(2024, 03, 13), 450.0, Category.Groceries));
@@ -29,9 +30,9 @@ class UnusualSpendTest {
     }
 
     @Test
-    void shouldAblToReturnCurrentMonthTransactions() throws InvalidTransactionException {
+    void shouldAblToReturnCurrentMonthTransactions() throws InvalidTransactionException, InvalidCreditCardIdException {
         //Arrange
-        CreditCard creditCard = new CreditCard(1);
+        CreditCard creditCard = CreditCard.create(1);
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(Transaction.create(1, LocalDate.of(2024, 03, 13), 230.0, Category.Groceries));
         transactions.add(Transaction.create(2, LocalDate.of(2024, 03, 14), 450.0, Category.Groceries));
@@ -49,9 +50,9 @@ class UnusualSpendTest {
     }
 
     @Test
-    void shouldAblToReturnCurrentPreviousMonthTransactions() throws InvalidTransactionException {
+    void shouldAblToReturnCurrentPreviousMonthTransactions() throws InvalidTransactionException, InvalidCreditCardIdException {
         //Arrange
-        CreditCard creditCard = new CreditCard(1);
+        CreditCard creditCard = CreditCard.create(1);
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(Transaction.create(1, LocalDate.of(2024, 03, 13), 230.0, Category.Groceries));
         transactions.add(Transaction.create(2, LocalDate.of(2024, 01, 14), 450.0, Category.Groceries));
@@ -70,9 +71,9 @@ class UnusualSpendTest {
     }
 
     @Test
-    void shouldAbleToGiveUnusualSpendWithCategoryAndAmount() throws InvalidTransactionException {
+    void shouldAbleToGiveUnusualSpendWithCategoryAndAmount() throws InvalidTransactionException, InvalidCreditCardIdException {
         //Arrange
-        CreditCard creditCard = new CreditCard(1);
+        CreditCard creditCard = CreditCard.create(1);
         UnusualSpend unusualSpend = new UnusualSpend();
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(Transaction.create(1, LocalDate.of(2024, 03, 13), 730.0, Category.Groceries));
