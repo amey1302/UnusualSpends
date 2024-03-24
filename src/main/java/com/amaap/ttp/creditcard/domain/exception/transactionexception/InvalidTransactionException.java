@@ -1,4 +1,4 @@
-package com.amaap.ttp.creditcard.domain.model.exception;
+package com.amaap.ttp.creditcard.domain.exception.transactionexception;
 
 public class InvalidTransactionException extends Exception {
     public InvalidTransactionException(String message) {

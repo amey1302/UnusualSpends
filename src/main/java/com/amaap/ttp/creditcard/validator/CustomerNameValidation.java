@@ -1,4 +1,4 @@
-package com.amaap.ttp.creditcard.domain.validator;
+package com.amaap.ttp.creditcard.validator;
 
 public class CustomerNameValidation {
     public static boolean isInValidCustomerName(String customerName){

@@ -1,13 +1,12 @@
-package com.amaap.ttp.creditcard.domain.model;
+package com.amaap.ttp.creditcard.domain;
 
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionAmountException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionDateException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
+import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionAmountException;
+import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionIdException;
+import com.amaap.ttp.creditcard.domain.model.Category;
+import com.amaap.ttp.creditcard.domain.model.Transaction;
 import org.junit.jupiter.api.Test;
 
-import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.zip.DataFormatException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -85,7 +84,7 @@ class TransactionTest {
             Transaction.create(transactionId, date, amount, category);
         });
     }
-
+    //Todo : Need to write the test cases for the Invalid TransactionDate
 //    @Test
 //    void shouldBeAbleToCreateTransactionWithDateInLeapYear() {
 //        // Arrange

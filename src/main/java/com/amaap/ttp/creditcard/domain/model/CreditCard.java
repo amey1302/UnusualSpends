@@ -1,6 +1,6 @@
 package com.amaap.ttp.creditcard.domain.model;
 
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCreditCardIdException;
+import com.amaap.ttp.creditcard.domain.exception.creditcardexception.InvalidCreditCardIdException;
 
 import java.util.Objects;
 

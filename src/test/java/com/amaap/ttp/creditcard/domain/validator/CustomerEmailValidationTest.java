@@ -1,5 +1,6 @@
 package com.amaap.ttp.creditcard.domain.validator;
 
+import com.amaap.ttp.creditcard.validator.CustomerEmailValidation;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

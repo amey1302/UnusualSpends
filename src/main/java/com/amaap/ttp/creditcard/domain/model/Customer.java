@@ -1,14 +1,14 @@
 package com.amaap.ttp.creditcard.domain.model;
 
-import com.amaap.ttp.creditcard.domain.model.exception.CustomerValidationException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCustomerEmailIdException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCustomerIdException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCustomerNameException;
+import com.amaap.ttp.creditcard.domain.exception.customerexception.CustomerValidationException;
+import com.amaap.ttp.creditcard.domain.exception.customerexception.InvalidCustomerEmailIdException;
+import com.amaap.ttp.creditcard.domain.exception.customerexception.InvalidCustomerIdException;
+import com.amaap.ttp.creditcard.domain.exception.customerexception.InvalidCustomerNameException;
 
 import java.util.Objects;
 
-import static com.amaap.ttp.creditcard.domain.validator.CustomerEmailValidation.isInValidCustomerEmailId;
-import static com.amaap.ttp.creditcard.domain.validator.CustomerNameValidation.isInValidCustomerName;
+import static com.amaap.ttp.creditcard.validator.CustomerEmailValidation.isInValidCustomerEmailId;
+import static com.amaap.ttp.creditcard.validator.CustomerNameValidation.isInValidCustomerName;
 
 public class Customer {
     private final int id;

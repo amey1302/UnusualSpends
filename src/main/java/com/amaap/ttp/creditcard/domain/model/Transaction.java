@@ -1,9 +1,9 @@
 package com.amaap.ttp.creditcard.domain.model;
 
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionAmountException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionDateException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
+import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionAmountException;
+import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionDateException;
+import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionException;
+import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionIdException;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;

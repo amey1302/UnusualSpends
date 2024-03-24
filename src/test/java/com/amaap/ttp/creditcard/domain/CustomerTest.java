@@ -1,9 +1,10 @@
-package com.amaap.ttp.creditcard.domain.model;
+package com.amaap.ttp.creditcard.domain;
 
 
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCustomerEmailIdException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCustomerIdException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCustomerNameException;
+import com.amaap.ttp.creditcard.domain.exception.customerexception.InvalidCustomerEmailIdException;
+import com.amaap.ttp.creditcard.domain.exception.customerexception.InvalidCustomerIdException;
+import com.amaap.ttp.creditcard.domain.exception.customerexception.InvalidCustomerNameException;
+import com.amaap.ttp.creditcard.domain.model.Customer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;

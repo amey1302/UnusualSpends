@@ -1,7 +1,7 @@
-package com.amaap.ttp.creditcard.domain.model;
+package com.amaap.ttp.creditcard.domain;
 
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCreditCardIdException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCustomerIdException;
+import com.amaap.ttp.creditcard.domain.exception.creditcardexception.InvalidCreditCardIdException;
+import com.amaap.ttp.creditcard.domain.model.CreditCard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

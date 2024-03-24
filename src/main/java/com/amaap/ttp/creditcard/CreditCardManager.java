@@ -1,16 +1,14 @@
-package com.amaap.ttp.creditcard.domain;
+package com.amaap.ttp.creditcard;
 
 import com.amaap.ttp.creditcard.domain.model.Category;
 import com.amaap.ttp.creditcard.domain.model.CreditCard;
 import com.amaap.ttp.creditcard.domain.model.Customer;
 import com.amaap.ttp.creditcard.domain.model.Transaction;
-import com.amaap.ttp.creditcard.domain.model.exception.CustomerValidationException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidCreditCardIdException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionException;
-import com.amaap.ttp.creditcard.domain.model.exception.InvalidTransactionIdException;
+import com.amaap.ttp.creditcard.domain.exception.customerexception.CustomerValidationException;
+import com.amaap.ttp.creditcard.domain.exception.creditcardexception.InvalidCreditCardIdException;
+import com.amaap.ttp.creditcard.domain.exception.transactionexception.InvalidTransactionException;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class CreditCardManager {
     public Customer createCustomer(int customerId, String customerName, String customerEmail) throws CustomerValidationException {
