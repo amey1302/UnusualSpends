@@ -2,8 +2,7 @@ plugins {
     id 'java'
     id 'jacoco'
 }
-
-group 'org.amaap.cqrs.hotel.booking'
+group 'org.amaap.unusalspends'
 version '1.0-SNAPSHOT'
 
 repositories {
