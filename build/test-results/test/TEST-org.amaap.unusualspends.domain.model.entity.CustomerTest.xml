@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.unusualspends.domain.model.entity.CustomerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-01T05:57:41" hostname="LAPTOP-205J7BQ6" time="0.021">
+<testsuite name="org.amaap.unusualspends.domain.model.entity.CustomerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-01T09:13:37" hostname="LAPTOP-205J7BQ6" time="0.02">
   <properties/>
-  <testcase name="shouldAbleToThrowExceptionWhenCustomerNameIsInvalid()" classname="org.amaap.unusualspends.domain.model.entity.CustomerTest" time="0.008"/>
+  <testcase name="shouldAbleToThrowExceptionWhenCustomerNameIsInvalid()" classname="org.amaap.unusualspends.domain.model.entity.CustomerTest" time="0.006"/>
   <testcase name="shouldAbleToThrowAnExceptionWhenCustomerEmailIdIsInvalid()" classname="org.amaap.unusualspends.domain.model.entity.CustomerTest" time="0.005"/>
   <testcase name="shouldAbleToThrowExceptionWhenCustomerIdIsInvalid()" classname="org.amaap.unusualspends.domain.model.entity.CustomerTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
