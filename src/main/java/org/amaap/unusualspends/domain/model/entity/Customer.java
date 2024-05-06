@@ -52,7 +52,10 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "creditCard=" + creditCard +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", creditCard=" + creditCard +
                 '}';
     }
 }

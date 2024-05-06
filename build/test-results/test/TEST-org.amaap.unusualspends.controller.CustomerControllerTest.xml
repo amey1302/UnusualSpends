@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.amaap.unusualspends.controller.CustomerControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-06T17:42:09" hostname="LAPTOP-205J7BQ6" time="0.011">
+  <properties/>
+  <testcase name="shouldBeAbleToAssignCreditCardToCustomer()" classname="org.amaap.unusualspends.controller.CustomerControllerTest" time="0.006"/>
+  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfCustomerWithInvalidDataCreated()" classname="org.amaap.unusualspends.controller.CustomerControllerTest" time="0.002"/>
+  <testcase name="shouldBeABleToReturnOkIfCustomerCreated()" classname="org.amaap.unusualspends.controller.CustomerControllerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

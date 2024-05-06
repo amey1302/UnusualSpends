@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.amaap.unusualspends.service.CustomerServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-05-06T17:42:09" hostname="LAPTOP-205J7BQ6" time="0.021">
+  <properties/>
+  <testcase name="shouldAbleToThrowExceptionWhenCustomerNameIsInvalid()" classname="org.amaap.unusualspends.service.CustomerServiceTest" time="0.007"/>
+  <testcase name="shouldBeAbleToCreateCustomer()" classname="org.amaap.unusualspends.service.CustomerServiceTest" time="0.001"/>
+  <testcase name="shouldAbleToThrowAnExceptionWhenCustomerEmailIdIsInvalid()" classname="org.amaap.unusualspends.service.CustomerServiceTest" time="0.008"/>
+  <testcase name="shouldBeAbleToAssignCardToCustomer()" classname="org.amaap.unusualspends.service.CustomerServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

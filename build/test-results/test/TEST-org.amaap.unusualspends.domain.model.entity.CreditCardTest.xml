@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.unusualspends.domain.model.entity.CreditCardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-06T17:25:27" hostname="LAPTOP-205J7BQ6" time="0.027">
+<testsuite name="org.amaap.unusualspends.domain.model.entity.CreditCardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-06T17:42:09" hostname="LAPTOP-205J7BQ6" time="0.002">
   <properties/>
-  <testcase name="shouldBeAbleToCreateCreditCard()" classname="org.amaap.unusualspends.domain.model.entity.CreditCardTest" time="0.027"/>
+  <testcase name="shouldBeAbleToCreateCreditCard()" classname="org.amaap.unusualspends.domain.model.entity.CreditCardTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
