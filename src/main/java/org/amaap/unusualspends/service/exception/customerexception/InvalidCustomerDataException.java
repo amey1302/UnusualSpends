@@ -1,4 +1,4 @@
-package org.amaap.unusualspends.domain.model.entity.exception.customerexception;
+package org.amaap.unusualspends.service.exception.customerexception;
 
 public class InvalidCustomerDataException extends Exception {
     public InvalidCustomerDataException(String message) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-01T09:13:37" hostname="LAPTOP-205J7BQ6" time="0.001">
+<testsuite name="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-06T13:27:32" hostname="LAPTOP-205J7BQ6" time="0.0">
   <properties/>
-  <testcase name="shouldBeABleToInsertCustomerDataIntoCustomerTable()" classname="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" time="0.001"/>
+  <testcase name="shouldBeABleToInsertCustomerDataIntoCustomerTable()" classname="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

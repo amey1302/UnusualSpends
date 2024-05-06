@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.unusualspends.domain.model.entity.exception.validator.CustomerEmailValidatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-01T09:13:37" hostname="LAPTOP-205J7BQ6" time="0.007">
+<testsuite name="org.amaap.unusualspends.domain.model.entity.exception.validator.CustomerEmailValidatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-06T13:27:32" hostname="LAPTOP-205J7BQ6" time="0.005">
   <properties/>
-  <testcase name="shouldBeAbleToValidateCustomerEmailId()" classname="org.amaap.unusualspends.domain.model.entity.exception.validator.CustomerEmailValidatorTest" time="0.003"/>
-  <testcase name="shouldAbleToReturnTrueWhenCustomerIsValid()" classname="org.amaap.unusualspends.domain.model.entity.exception.validator.CustomerEmailValidatorTest" time="0.003"/>
+  <testcase name="shouldBeAbleToValidateCustomerEmailId()" classname="org.amaap.unusualspends.domain.model.entity.exception.validator.CustomerEmailValidatorTest" time="0.002"/>
+  <testcase name="shouldAbleToReturnTrueWhenCustomerIsValid()" classname="org.amaap.unusualspends.domain.model.entity.exception.validator.CustomerEmailValidatorTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

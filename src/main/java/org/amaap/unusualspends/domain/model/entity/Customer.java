@@ -1,35 +1,39 @@
 package org.amaap.unusualspends.domain.model.entity;
 
-import org.amaap.unusualspends.domain.model.entity.exception.customerexception.InvalidCustomerDataException;
-import org.amaap.unusualspends.domain.model.entity.exception.customerexception.InvalidCustomerEmailIdException;
-import org.amaap.unusualspends.domain.model.entity.exception.customerexception.InvalidCustomerIdException;
-import org.amaap.unusualspends.domain.model.entity.exception.customerexception.InvalidCustomerNameException;
+import org.amaap.unusualspends.service.exception.customerexception.InvalidCustomerDataException;
 
 import java.util.Objects;
-
-import static org.amaap.unusualspends.domain.model.entity.exception.validator.CustomerEmailValidator.isInvalidEmailId;
-import static org.amaap.unusualspends.domain.model.entity.exception.validator.CustomerNameValidator.isInValidCustomerName;
 
 public class Customer {
     private int id;
     private String name;
     private String email;
+    private CreditCard creditCard;
 
-    public Customer(int id, String name, String email) {
+    private Customer(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
     public static Customer create(int id, String name, String email) throws InvalidCustomerDataException {
-        if (id <= 0) throw new InvalidCustomerIdException("Invalid CustomerId : " + id);
-        if (isInValidCustomerName(name)) throw new InvalidCustomerNameException("Invalid CustomerName : " + name);
-        if (isInvalidEmailId(email)) throw new InvalidCustomerEmailIdException("Invalid Customer Email : " + email);
         return new Customer(id, name, email);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
     }
 
     @Override
@@ -43,5 +47,12 @@ public class Customer {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, email);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "creditCard=" + creditCard +
+                '}';
     }
 }
