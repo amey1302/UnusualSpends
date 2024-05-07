@@ -18,6 +18,7 @@ class InMemoryCreditCardRepositoryTest {
         inMemoryDatabase = new FakeDatabase();
         creditCardRepository = new InMemoryCreditCardRepository(inMemoryDatabase);
     }
+
     @Test
     void shouldBeAbleToInsertCreditCardIntoTable() throws InvalidCardIdException {
         // arrange

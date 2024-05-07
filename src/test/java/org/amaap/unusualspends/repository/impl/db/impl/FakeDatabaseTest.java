@@ -2,10 +2,13 @@ package org.amaap.unusualspends.repository.impl.db.impl;
 
 import org.amaap.unusualspends.domain.model.entity.CreditCard;
 import org.amaap.unusualspends.domain.model.entity.Customer;
+import org.amaap.unusualspends.domain.model.entity.Transaction;
 import org.amaap.unusualspends.domain.model.entity.exception.creditcardexception.InvalidCardIdException;
 import org.amaap.unusualspends.service.exception.customerexception.InvalidCustomerDataException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,6 +20,7 @@ class FakeDatabaseTest {
         fakeDatabase = new FakeDatabase();
 
     }
+
     @Test
     void shouldBeAbleToInsertCustomerDataIntoCustomerTable() throws InvalidCustomerDataException {
         // arrange
@@ -31,6 +35,7 @@ class FakeDatabaseTest {
         // assert
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldBeAbleToUpdateCustomerDataIntoCustomerTableWhenCreditCardIsAssignedToCustomer() throws InvalidCustomerDataException, InvalidCardIdException {
         // arrange
@@ -49,5 +54,34 @@ class FakeDatabaseTest {
         // assert
         Customer updatedCustomer = fakeDatabase.customerList.get(0);
         assertEquals(customer, updatedCustomer);
+    }
+
+    @Test
+    void shouldBeAbleToInsertCreditCardDataIntoCreditCardTable() throws InvalidCardIdException {
+        // arrange
+        int id = 1;
+        CreditCard expected = CreditCard.create(id);
+
+        // act
+        CreditCard actual = fakeDatabase.insertIntoCreditCardTable(expected);
+
+        // assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldBeAbleToInsertTransactionDataIntoTransactionTable() throws InvalidCardIdException {
+        // arrange
+        int transactionId = 1;
+        LocalDate date = LocalDate.of(2024, 05, 23);
+        double amount = 200.0;
+        String category = "Travel";
+        Transaction expected = Transaction.create(transactionId, date, amount, category);
+
+        // act
+        Transaction actual = fakeDatabase.insertIntoTransactionTable(expected);
+
+        // assert
+        assertEquals(expected, actual);
     }
 }
