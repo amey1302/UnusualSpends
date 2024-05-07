@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.unusualspends.domain.model.entity.CustomerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-06T17:42:09" hostname="LAPTOP-205J7BQ6" time="0.001">
+<testsuite name="org.amaap.unusualspends.domain.model.entity.CustomerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-07T10:45:26" hostname="LAPTOP-205J7BQ6" time="0.001">
   <properties/>
   <testcase name="shouldBeAbleToCreateCustomer()" classname="org.amaap.unusualspends.domain.model.entity.CustomerTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

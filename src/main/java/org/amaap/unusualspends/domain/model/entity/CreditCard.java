@@ -2,8 +2,12 @@ package org.amaap.unusualspends.domain.model.entity;
 
 import org.amaap.unusualspends.domain.model.entity.exception.creditcardexception.InvalidCardIdException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CreditCard {
     private int id;
+    private List<Transaction> transactions = new ArrayList<>();
 
     private CreditCard(int id) {
         this.id = id;
@@ -27,4 +31,5 @@ public class CreditCard {
                 "id=" + id +
                 '}';
     }
+
 }

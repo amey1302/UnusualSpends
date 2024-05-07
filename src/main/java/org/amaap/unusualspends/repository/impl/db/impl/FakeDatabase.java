@@ -2,6 +2,7 @@ package org.amaap.unusualspends.repository.impl.db.impl;
 
 import org.amaap.unusualspends.domain.model.entity.CreditCard;
 import org.amaap.unusualspends.domain.model.entity.Customer;
+import org.amaap.unusualspends.domain.model.entity.Transaction;
 import org.amaap.unusualspends.repository.impl.db.InMemoryDatabase;
 
 import java.util.ArrayList;
@@ -10,8 +11,10 @@ import java.util.List;
 public class FakeDatabase implements InMemoryDatabase {
     List<Customer> customerList = new ArrayList<>();
     List<CreditCard> creditCardList = new ArrayList<>();
+    List<Transaction> transactionList = new ArrayList<>();
     int customerIdCounter = 1;
     int creditCardIdCounter = 1;
+    int transactionIdCounter = 1;
 
     @Override
     public Customer insertIntoCustomerTable(Customer customer) {
@@ -35,6 +38,12 @@ public class FakeDatabase implements InMemoryDatabase {
                 break;
             }
         }
+    }
 
+    @Override
+    public Transaction insertIntoTransactionTable(Transaction transaction) {
+        transaction.setTransactionId(transactionIdCounter);
+        transactionList.add(transaction);
+        return transaction;
     }
 }

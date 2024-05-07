@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-06T17:42:09" hostname="LAPTOP-205J7BQ6" time="0.003">
+<testsuite name="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-05-07T10:45:26" hostname="LAPTOP-205J7BQ6" time="0.006">
   <properties/>
-  <testcase name="shouldBeAbleToUpdateCustomerDataIntoCustomerTableWhenCreditCardIsAssignedToCustomer()" classname="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" time="0.001"/>
+  <testcase name="shouldBeAbleToUpdateCustomerDataIntoCustomerTableWhenCreditCardIsAssignedToCustomer()" classname="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" time="0.0"/>
+  <testcase name="shouldBeAbleToInsertCreditCardDataIntoCreditCardTable()" classname="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" time="0.001"/>
+  <testcase name="shouldBeAbleToInsertTransactionDataIntoTransactionTable()" classname="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" time="0.001"/>
   <testcase name="shouldBeAbleToInsertCustomerDataIntoCustomerTable()" classname="org.amaap.unusualspends.repository.impl.db.impl.FakeDatabaseTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

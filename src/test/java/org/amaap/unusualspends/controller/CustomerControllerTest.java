@@ -31,7 +31,7 @@ public class CustomerControllerTest {
     }
 
     @Test
-    void shouldBeABleToReturnOkIfCustomerCreated() {
+    void shouldBeAbleToReturnOkIfCustomerCreated() {
         // arrange
         String name = "Baburao Apte";
         String email = "baburao.apte@gmail.com";

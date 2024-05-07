@@ -14,7 +14,7 @@ class CustomerTest {
         String email = "baburao.apte@gmail.com";
 
         // act
-        Customer customer = Customer.create(id,name,email);
+        Customer customer = Customer.create(id, name, email);
 
         // assert
         assertNotNull(customer);

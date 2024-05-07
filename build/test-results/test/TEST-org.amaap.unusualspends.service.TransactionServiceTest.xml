@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.amaap.unusualspends.service.TransactionServiceTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2024-05-07T10:45:27" hostname="LAPTOP-205J7BQ6" time="0.035">
+  <properties/>
+  <testcase name="shouldThrowExceptionForEmptyTransactionCategory()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.004"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionCategoryWithSpaces()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.001"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionCategoryWithTabs()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.002"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionCategoryWithLeadingSpaces()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.002"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionAmount()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.002"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionCategoryWithDigit()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.001"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionCategoryNotInEnum()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.002"/>
+  <testcase name="shouldBeAbleToCreateTransactionWithValidCategoryGroceries()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.003"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionCategoryWithTrailingSpaces()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.001"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionId()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.004"/>
+  <testcase name="shouldBeAbleToCreateTransactionWithValidCategoryTravel()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.001"/>
+  <testcase name="shouldThrowExceptionForInvalidTransactionCategoryNotFound()" classname="org.amaap.unusualspends.service.TransactionServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
