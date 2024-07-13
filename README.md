@@ -1,10 +1,10 @@
-# Credit Card Alert System
+# Unusual Spends
 
 ## Overview
 This project implements a credit card alert system for detecting unusual spending patterns and triggering alerts to users. The system is designed to provide value-added services to credit card users by notifying them when their spending in any particular category is higher than usual.
 
 ## Problem Statement
-You work at a credit card company and as a value-add they want to start providing alerts to users when their spending in any particular category is higher than usual.
+You work at a credit card company and as a value-add, they want to start providing alerts to users when their spending in any particular category is higher than usual.
  - Compare the total amount paid for the current month, grouped by category with the previous month 
  - Filter down to the categories for which the user spent at least 50% more this month than last month
  - Compose an e-mail message to the user that lists the categories for which spending was    unusually high
@@ -30,6 +30,10 @@ Extensions -
 - Change in threshold percentage
 - Change in usual spending amount calculation logic
 - Adding usual spending amount in email
+
+## Description :
+  In this problem statement, we have given an email template and credit card system, we need to analyze the transactions and alert the user of their unusual spending for the current month compared with the previous month.
+
 ## Architecture
 The system follows an MVC architecture with the following components:
 
@@ -63,4 +67,8 @@ The system follows an MVC architecture with the following components:
     1. SpendAnalyzer: Analyzes transaction data for unusual spending patterns.
     2. EmailComposer : content of the email
     3. EmailAlertSender: sends email alerts to users, contains the main logic for sending email.
+
+## Flow of Program :
+ Initially, the customer is created -> after that credit card is created and that credit card is mapped to the customer -> after mapping the credit card the transaction is performed with a transaction id and credit card. -> based on the month the and year, the transaction are separated -> then the unusual spending is checked and based on the condition the email alert send to customer.
+Checkout Main File.
 
