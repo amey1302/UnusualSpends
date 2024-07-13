@@ -35,7 +35,7 @@ public class Main {
         int prevYear = currentMonth == Month.JANUARY ? currentYear - 1 : currentYear;
 
         // act
-        customerService.create("Ashok Pawar", "ashokpawar8020@gmail.com");
+        customerService.create("Baburao Apte", "ameykulkarni1302@gmail.com");
         creditCardService.create();
         creditCardService.mapCustomer(1, 1);
         transactionService.create(1, 400, Category.GROCERIES, LocalDate.of(currentYear, currentMonth, 20));
