@@ -1,4 +1,4 @@
-package com.amaap.unusualspends.domain.model.entity.builder;
+package com.amaap.unusualspends.builder;
 
 import com.amaap.unusualspends.domain.model.entity.Transaction;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidCreditCardIdException;

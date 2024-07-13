@@ -1,4 +1,4 @@
-package com.amaap.unusualspends.domain.model.valueobject.builder;
+package com.amaap.unusualspends.builder;
 
 import com.amaap.unusualspends.domain.model.valueobject.Category;
 import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;

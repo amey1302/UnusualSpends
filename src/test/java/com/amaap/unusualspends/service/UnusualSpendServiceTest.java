@@ -19,7 +19,7 @@ import java.time.Month;
 import java.util.List;
 import java.util.Map;
 
-import static com.amaap.unusualspends.domain.model.valueobject.builder.SpendRecordBuilder.getSpendRecords;
+import static com.amaap.unusualspends.builder.SpendRecordBuilder.getSpendRecords;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

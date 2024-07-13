@@ -19,8 +19,8 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-import static com.amaap.unusualspends.domain.model.entity.builder.TransactionBuilder.getTransactions;
-import static com.amaap.unusualspends.domain.model.entity.builder.TransactionBuilder.getTransactionsForCurrentMonth;
+import static com.amaap.unusualspends.builder.TransactionBuilder.getTransactions;
+import static com.amaap.unusualspends.builder.TransactionBuilder.getTransactionsForCurrentMonth;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
