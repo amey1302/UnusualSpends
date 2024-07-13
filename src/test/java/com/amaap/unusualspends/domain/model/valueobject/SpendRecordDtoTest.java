@@ -1,5 +1,6 @@
 package com.amaap.unusualspends.domain.model.valueobject;
 
+import com.amaap.unusualspends.service.dto.SpendRecordDto;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

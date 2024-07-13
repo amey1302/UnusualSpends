@@ -3,7 +3,7 @@ package com.amaap.unusualspends.controller;
 import com.amaap.unusualspends.controller.dto.HttpStatus;
 import com.amaap.unusualspends.controller.dto.Response;
 import com.amaap.unusualspends.domain.model.entity.Transaction;
-import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;
+import com.amaap.unusualspends.service.dto.SpendRecordDto;
 import com.amaap.unusualspends.service.UnusualSpendService;
 import jakarta.inject.Inject;
 

@@ -1,6 +1,6 @@
 package com.amaap.unusualspends.domain.service;
 
-import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;
+import com.amaap.unusualspends.service.dto.SpendRecordDto;
 
 import java.util.List;
 

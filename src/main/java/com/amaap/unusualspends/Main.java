@@ -1,13 +1,12 @@
 package com.amaap.unusualspends;
 
 import com.amaap.unusualspends.controller.UnusualSpendController;
-import com.amaap.unusualspends.controller.dto.Response;
 import com.amaap.unusualspends.domain.model.entity.Transaction;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidCreditCardIdException;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidCustomerDataException;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidTransactionDataException;
 import com.amaap.unusualspends.domain.model.valueobject.Category;
-import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;
+import com.amaap.unusualspends.service.dto.SpendRecordDto;
 import com.amaap.unusualspends.service.CreditCardService;
 import com.amaap.unusualspends.service.CustomerService;
 import com.amaap.unusualspends.service.TransactionService;
@@ -34,7 +33,6 @@ public class Main {
         int currentYear = LocalDate.now().getYear();
         int prevYear = currentMonth == Month.JANUARY ? currentYear - 1 : currentYear;
 
-        // act
         customerService.create("Baburao Apte", "ameykulkarni1302@gmail.com");
         creditCardService.create();
         creditCardService.mapCustomer(1, 1);
@@ -45,7 +43,6 @@ public class Main {
         List<Transaction> currentMonthTransactions = transactionService.filterTransactionsByMonth(currentMonth);
         List<Transaction> previousMonthTransactions = transactionService.filterTransactionsByMonth(prevMonth);
         Map<Integer, List<SpendRecordDto>> spendRecord = unusualSpendController.evaluateSpend(currentMonthTransactions, previousMonthTransactions, thresholdPercentage);
-        Response response = unusualSpendController.sendEmail(spendRecord);
-        System.out.println(response.getMessage());
+        unusualSpendController.sendEmail(spendRecord);
     }
 }

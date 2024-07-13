@@ -1,7 +1,7 @@
 package com.amaap.unusualspends.builder;
 
 import com.amaap.unusualspends.domain.model.valueobject.Category;
-import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;
+import com.amaap.unusualspends.service.dto.SpendRecordDto;
 
 import java.util.ArrayList;
 import java.util.HashMap;

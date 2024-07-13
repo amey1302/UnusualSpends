@@ -5,7 +5,7 @@ import com.amaap.unusualspends.domain.model.entity.Transaction;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidCreditCardIdException;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidTransactionDataException;
 import com.amaap.unusualspends.domain.model.valueobject.Category;
-import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;
+import com.amaap.unusualspends.service.dto.SpendRecordDto;
 import com.amaap.unusualspends.service.CreditCardService;
 import com.amaap.unusualspends.service.TransactionService;
 import com.amaap.unusualspends.service.exception.CreditCardNotFoundException;

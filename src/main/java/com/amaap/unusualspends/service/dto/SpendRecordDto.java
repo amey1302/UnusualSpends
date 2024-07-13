@@ -1,4 +1,6 @@
-package com.amaap.unusualspends.domain.model.valueobject;
+package com.amaap.unusualspends.service.dto;
+
+import com.amaap.unusualspends.domain.model.valueobject.Category;
 
 public class SpendRecordDto {
     public Category category;

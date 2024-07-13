@@ -3,7 +3,7 @@ package com.amaap.unusualspends.service;
 import com.amaap.unusualspends.domain.model.entity.CreditCard;
 import com.amaap.unusualspends.domain.model.entity.Transaction;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidEmailIdException;
-import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;
+import com.amaap.unusualspends.service.dto.SpendRecordDto;
 import com.amaap.unusualspends.domain.service.EmailAlertSender;
 import com.amaap.unusualspends.domain.service.SpendAnalyzer;
 import com.amaap.unusualspends.domain.service.exception.InvalidEmailBodyException;

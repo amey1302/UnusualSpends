@@ -6,7 +6,7 @@ import com.amaap.unusualspends.domain.model.entity.exception.InvalidCreditCardId
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidCustomerDataException;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidTransactionDataException;
 import com.amaap.unusualspends.domain.model.valueobject.Category;
-import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;
+import com.amaap.unusualspends.service.dto.SpendRecordDto;
 import com.amaap.unusualspends.service.exception.CreditCardNotFoundException;
 import com.amaap.unusualspends.service.exception.CustomerNotFoundException;
 import com.google.inject.Guice;
