@@ -4,7 +4,7 @@ import com.amaap.unusualspends.domain.model.entity.CreditCard;
 import com.amaap.unusualspends.domain.model.entity.Transaction;
 import com.amaap.unusualspends.domain.model.entity.exception.InvalidEmailIdException;
 import com.amaap.unusualspends.domain.model.valueobject.SpendRecordDto;
-import com.amaap.unusualspends.domain.service.EmailSender;
+import com.amaap.unusualspends.domain.service.EmailAlertSender;
 import com.amaap.unusualspends.domain.service.SpendAnalyzer;
 import com.amaap.unusualspends.domain.service.exception.InvalidEmailBodyException;
 import com.amaap.unusualspends.domain.service.exception.InvalidEmailSubjectException;
@@ -39,7 +39,7 @@ public class UnusualSpendService {
                 String subject = "Regarding unusual spend for current month";
                 List<SpendRecordDto> record = entry.getValue();
                 String body = composeEmail(name, record);
-                EmailSender.sendEmail(subject, body, email);
+                EmailAlertSender.sendEmail(subject, body, email);
             }
         } catch (InvalidEmailIdException | InvalidEmailSubjectException | CreditCardNotFoundException |
                  InvalidEmailBodyException e) {

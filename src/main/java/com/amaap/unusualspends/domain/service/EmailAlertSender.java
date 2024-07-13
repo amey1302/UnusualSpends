@@ -14,7 +14,7 @@ import java.util.Properties;
 
 import static com.amaap.unusualspends.domain.model.entity.validator.EmailValidator.isValidEmail;
 
-public class EmailSender {
+public class EmailAlertSender {
     public static void sendEmail(String subject, String body, String email) throws InvalidEmailIdException, InvalidEmailBodyException, InvalidEmailSubjectException {
         if (!isValidEmail(email)) throw new InvalidEmailIdException("Invalid email id:" + email);
         if (body == null || body.isEmpty()) throw new InvalidEmailBodyException("Email body should have content");
